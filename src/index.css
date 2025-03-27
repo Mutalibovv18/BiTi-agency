@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #FFD700;
+  --secondary: #111111;
+  --text-primary: #FFFFFF;
+  --text-secondary: #FFD700;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.hero-gradient {
+  @apply bg-gradient-to-br from-gray-50 to-gray-100 dark:from-[#111111] dark:to-black;
+  background-image: radial-gradient(circle at top right, rgba(255, 215, 0, 0.15), transparent 50%);
+}
+
+.section-gradient {
+  @apply bg-gradient-to-b from-white to-gray-50 dark:from-[#111111] dark:to-black;
+  background-image: radial-gradient(circle at bottom left, rgba(255, 215, 0, 0.1), transparent 60%);
+}
+
+.card-hover {
+  @apply transition-all duration-300;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(249, 250, 251, 0.95));
+  @apply dark:bg-gradient-to-br dark:from-[rgba(17,17,17,0.9)] dark:to-[rgba(0,0,0,0.95)];
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+}
+
+.service-card {
+  @apply bg-gradient-to-br from-white to-gray-50 dark:from-[#1a1a1a] dark:to-[#111111];
+  @apply border border-gray-200 dark:border-[rgba(255,215,0,0.1)];
+  @apply transition-all duration-300;
+}
+
+.service-card:hover {
+  @apply border-[#FFD700];
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+}
+
+.reason-card {
+  @apply bg-gradient-to-br from-gray-50 to-white dark:from-[rgba(26,26,26,0.8)] dark:to-[rgba(17,17,17,0.9)];
+  @apply border border-gray-200 dark:border-[rgba(255,215,0,0.1)];
+  @apply transition-all duration-300;
+  backdrop-filter: blur(10px);
+}
+
+.reason-card:hover {
+  @apply border-[#FFD700];
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+}
+
+.team-member {
+  @apply relative overflow-hidden rounded-2xl;
+  @apply transition-all duration-300;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+}
+
+.team-member-info {
+  @apply absolute -bottom-full left-0 right-0;
+  @apply bg-white/90 dark:bg-black/90 p-6;
+  @apply transition-all duration-300;
+  @apply border-t-2 border-[#FFD700];
+}
+
+.team-member:hover .team-member-info {
+  @apply bottom-0;
+}
+
+.process-tab {
+  @apply px-6 py-2 rounded-full transition-all duration-300;
+}
+
+.process-tab.active {
+  @apply bg-[#FFD700] text-black;
+}
+
+.process-tab:not(.active) {
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700;
+}
+
+.timeline-item {
+  @apply relative pl-8 border-l-2 border-[#FFD700] mb-8;
+}
+
+.timeline-item::before {
+  content: '';
+  @apply absolute -left-2 top-0 w-4 h-4 bg-[#FFD700] rounded-full;
+}
+
+.faq-item {
+  @apply border-b border-gray-200 dark:border-[rgba(255,215,0,0.1)];
+  @apply transition-all duration-300;
+}
+
+.faq-item:hover {
+  @apply bg-gray-50 dark:bg-[rgba(255,215,0,0.05)];
+}
+
+.faq-question {
+  @apply cursor-pointer transition-all duration-300;
+}
+
+.faq-question:hover {
+  @apply text-[#FFD700];
+}
+
+.faq-answer {
+  @apply max-h-0 overflow-hidden transition-all duration-300;
+}
+
+.faq-answer.active {
+  @apply max-h-[500px] pb-4;
+}
+
+/* Mobile Navigation Styles */
+.mobile-nav-item {
+  @apply flex flex-col items-center justify-center relative;
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.mobile-nav-item.active {
+  @apply text-[#FFD700];
+}
+
+.mobile-nav-item.active::after {
+  content: '';
+  @apply absolute w-full h-full;
+  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+  animation: glowEffect 1.5s infinite alternate;
+}
+
+@keyframes glowEffect {
+  from {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Footer Styles */
+.footer {
+  @apply bg-gradient-to-b from-gray-50 to-white dark:from-[#111111] dark:to-black;
+  background-image: radial-gradient(circle at top right, rgba(255, 215, 0, 0.1), transparent 70%);
+  @apply border-t border-gray-200 dark:border-[rgba(255,215,0,0.1)];
+}
+
+.footer-link {
+  @apply transition-all duration-300;
+}
+
+.footer-link:hover {
+  @apply text-[#FFD700] translate-x-1;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    @apply text-3xl !important;
+  }
+  
+  h2 {
+    @apply text-2xl !important;
+  }
+  
+  .container {
+    @apply px-4;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-[#111111];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#FFD700] rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#FFE44D];
+}
