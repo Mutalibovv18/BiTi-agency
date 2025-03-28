@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Leaf, Target, ShieldCheck, BarChart, Users, Globe, MessageSquare, Home, User, Settings, Phone, Moon, Sun, Facebook, Instagram, Linkedin, Twitter, CheckCircle } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import botir from './images/botir.jpeg'
+import logo from './images/biti.jpeg'
+import paris from './images/paris.jpg'
+import mutalibov from './images/mutalibov.jpeg'
 
 function App() {
   const [activeProcess, setActiveProcess] = useState('3');
@@ -112,15 +115,15 @@ function App() {
 
   const team = [
     {
-      name: "Sarah Johnson",
-      role: "Founder & Strategy Director",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e",
+      name: "Botir",
+      role: "Founder & Ceo",
+      image: paris,
       description: "10+ years in sustainable fashion marketing"
     },
     {
-      name: "Michael Chen",
+      name: "Mutalibov",
       role: "Head of Paid Media",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
+      image: mutalibov,
       description: "Expert in scaling ethical brands"
     },
     {
@@ -156,50 +159,64 @@ function App() {
 
   return (
     <div className="bg-white dark:bg-[#111111] text-gray-900 dark:text-white min-h-screen pb-20 md:pb-0 transition-colors duration-300">
-      {/* Desktop Navigation */}
-      <nav className="fixed w-full z-50 bg-white/90 dark:bg-[#111111]/90 backdrop-blur-sm hidden md:block">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-[#FFD700] text-2xl font-bold animate-fade-in">BiTi</div>
-          <div className="flex gap-8 items-center">
-            <a href="#about" className="hover:text-[#FFD700] transition-colors">About</a>
-            <a href="#services" className="hover:text-[#FFD700] transition-colors">Services</a>
-            <a href="#process" className="hover:text-[#FFD700] transition-colors">Process</a>
-            <a href="#team" className="hover:text-[#FFD700] transition-colors">Team</a>
-            <a href="#faq" className="hover:text-[#FFD700] transition-colors">FAQ</a>
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 transition-colors"
-              >
-                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              </button>
-            )}
-            <a 
-              href="https://calendly.com/botirtukhtayev/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#FFD700] text-black px-6 py-2 rounded-full hover:bg-[#FFE44D] transition-colors animate-scale-in"
-            >
-              Book a Demo
-            </a>
-          </div>
-        </div>
-      </nav>
+<nav className="fixed w-full z-50 bg-white/90 dark:bg-[#111]/90 backdrop-blur-sm hidden md:block">
+  <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+    {/* Logo */}
+    <a href="/">
+      <img src={logo} alt="BiTi Logo" className="h-14 w-14 rounded-full object-cover shadow-lg" />
+    </a>
+    
+    {/* Navigation Links */}
+    <div className="flex gap-8 items-center">
+      <a href="#about" className="hover:text-[#FFD700] transition-colors">About</a>
+      <a href="#services" className="hover:text-[#FFD700] transition-colors">Services</a>
+      <a href="#process" className="hover:text-[#FFD700] transition-colors">Process</a>
+      <a href="#team" className="hover:text-[#FFD700] transition-colors">Team</a>
+      <a href="#faq" className="hover:text-[#FFD700] transition-colors">FAQ</a>
 
-      {/* Mobile Header */}
-      <div className="fixed top-0 w-full z-50 bg-white/90 dark:bg-[#111111]/90 backdrop-blur-sm md:hidden">
-        <div className="flex justify-between items-center px-4 py-3">
-          <div className="text-[#FFD700] text-xl font-bold">BiTi</div>
-          {mounted && (
-            <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800"
-            >
-              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-          )}
-        </div>
-      </div>
+      {/* Dark Mode Toggle */}
+      {mounted && (
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 transition-colors"
+        >
+          {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+        </button>
+      )}
+
+      {/* Book a Demo */}
+      <a 
+        href="https://calendly.com/botirtukhtayev/30min"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-[#FFD700] text-black px-6 py-2 rounded-full hover:bg-[#FFE44D] transition-colors animate-scale-in"
+      >
+        Book a Demo
+      </a>
+    </div>
+  </div>
+</nav>
+
+{/* Mobile Navbar */}
+<div className="fixed top-0 w-full z-50 bg-white/90 dark:bg-[#111]/90 backdrop-blur-sm md:hidden">
+  <div className="flex justify-between items-center px-4 py-3">
+    {/* Logo */}
+    <a href="/">
+      <img src={logo} alt="BiTi Logo" className="h-14 w-14 rounded-full object-cover shadow-lg" />
+    </a>
+
+    {/* Dark Mode Toggle */}
+    {mounted && (
+      <button
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800"
+      >
+        {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+      </button>
+    )}
+  </div>
+</div>
+
 
       {/* Hero Section */}
       <section className="hero-gradient pt-24 md:pt-32 pb-20">
@@ -262,12 +279,13 @@ function App() {
     <div className="flex flex-col md:flex-row items-center gap-12">
       
       {/* Image Section - Appears First on Mobile */}
+      <div className="w-full md:w-1/2">
       <img 
-  src={botir} 
-  alt="Sustainable clothing" 
-  className="rounded-xl shadow-xl w-full object-cover"
+  src={botir}
+  alt="Sustainable clothing"
+  className="rounded-xl shadow-xl w-full h-[500px] object-cover"
 />
-
+      </div>
 
       {/* About Us Text Content */}
       <div className="w-full md:w-1/2">
@@ -557,48 +575,50 @@ function App() {
 
 
 
-      {/* Mobile Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-[#111111]/90 backdrop-blur-sm py-2 md:hidden z-50">
-        <div className="flex justify-around items-center">
-          <button
-            onClick={() => scrollToSection('home')}
-            className={`mobile-nav-item ${activeTab === 'home' ? 'active' : ''}`}
-          >
-            <Home className="w-6 h-6" />
-            <span className="text-xs mt-1">Home</span>
-          </button>
-          <button
-            onClick={() => scrollToSection('about')}
-            className={`mobile-nav-item ${activeTab === 'about' ? 'active' : ''}`}
-          >
-            <User className="w-6 h-6" />
-            <span className="text-xs mt-1">About</span>
-          </button>
-          <button
-            onClick={() => scrollToSection('process')}
-            className={`mobile-nav-item ${activeTab === 'process' ? 'active' : ''}`}
-          >
-            <Settings className="w-6 h-6" />
-            <span className="text-xs mt-1">Process</span>
-          </button>
-          <button
-            onClick={() => scrollToSection('services')}
-            className={`mobile-nav-item ${activeTab === 'services' ? 'active' : ''}`}
-          >
-            <Globe className="w-6 h-6" />
-            <span className="text-xs mt-1">Services</span>
-          </button>
-          <a
-            href="https://calendly.com/botirtukhtayev/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`mobile-nav-item ${activeTab === 'contact' ? 'active' : ''}`}
-          >
-            <Phone className="w-6 h-6" />
-            <span className="text-xs mt-1">Book Call</span>
-          </a>
-        </div>
-      </nav>
+     {/* Mobile Navigation */}
+<nav className="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-[#111111]/90 backdrop-blur-sm py-2 md:hidden z-50">
+  <div className="flex justify-around items-center">
+    <button
+      onClick={() => (window.location.href = "/")} // Redirects to Home Page
+      className={`mobile-nav-item ${activeTab === "home" ? "active" : ""}`}
+    >
+      <Home className="w-6 h-6" />
+      <span className="text-xs mt-1">Home</span>
+    </button>
+    <button
+      onClick={() => scrollToSection("about")}
+      className={`mobile-nav-item ${activeTab === "about" ? "active" : ""}`}
+    >
+      <User className="w-6 h-6" />
+      <span className="text-xs mt-1">About</span>
+    </button>
+    <button
+      onClick={() => scrollToSection("process")}
+      className={`mobile-nav-item ${activeTab === "process" ? "active" : ""}`}
+    >
+      <Settings className="w-6 h-6" />
+      <span className="text-xs mt-1">Process</span>
+    </button>
+    <button
+      onClick={() => scrollToSection("services")}
+      className={`mobile-nav-item ${activeTab === "services" ? "active" : ""}`}
+    >
+      <Globe className="w-6 h-6" />
+      <span className="text-xs mt-1">Services</span>
+    </button>
+    <a
+      href="https://calendly.com/botirtukhtayev/30min"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`mobile-nav-item ${activeTab === "contact" ? "active" : ""}`}
+    >
+      <Phone className="w-6 h-6" />
+      <span className="text-xs mt-1">Book Call</span>
+    </a>
+  </div>
+</nav>
+
+
     </div>
   );
 }
